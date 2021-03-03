@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CMDT.Domain.Models;
+using CMDT.Domain.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace CMDT.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class TagController : ControllerBase
     {
         private readonly ILogger<TagController> _logger;
@@ -43,7 +43,7 @@ namespace CMDT.Api.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet(RoutesManagement.Tag.GetTag)]
         public async Task<ActionResult> GetTag()
         {
             return Ok(_myTags);
